@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地铁车站明挖法施工VR全景监测项目 - 工程概况</title>
+    <!-- 引入Tailwind CSS CDN，适配GitHub Pages直接加载 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0969da', // GitHub风格的主蓝色
+                        secondary: '#24292f', // GitHub文本色
+                        neutral: '#f6f8fa', // GitHub背景色
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-shadow {
+                box-shadow: 0 1px 3px 0 rgba(27, 31, 35, 0.1), 0 1px 2px 0 rgba(27, 31, 35, 0.06);
+            }
+        }
+    </style>
+</head>
+<body class="bg-neutral text-secondary">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- 页面标题 -->
+        <header class="mb-10 text-center">
+            <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-secondary mb-2">
+                <i class="fa fa-subway text-primary mr-3"></i>地铁车站明挖法施工VR全景监测项目
+            </h1>
+            <p class="text-lg text-gray-600">工程概况 · VR全景互动项目</p>
+            <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded"></div>
+        </header>
+
+        <!-- 项目基本信息卡片 -->
+        <section class="mb-10">
+            <div class="bg-white rounded-lg p-6 card-shadow">
+                <h2 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fa fa-info-circle text-primary mr-2"></i>项目基本信息
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">项目名称：</span>
+                        <span class="font-medium">某地铁X号线XX站工程</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">施工方法：</span>
+                        <span class="font-medium">明挖法施工</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">当前作业面：</span>
+                        <span class="font-medium">第2层土方开挖作业面</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">项目目标：</span>
+                        <span class="font-medium">沉浸式施工安全监测培训</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">互动平台：</span>
+                        <span class="font-medium">VR全景漫游系统</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-32 text-gray-600">核心功能：</span>
+                        <span class="font-medium">全景漫游、隐患排查、任务引导</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目现场布局 -->
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 flex items-center">
+                <i class="fa fa-map-marker text-primary mr-2"></i>项目现场布局
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- 西南侧 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-truck text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">西南侧：车辆进出口</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        项目的车辆通行管控区，设置泥沙冲洗区与放行闸口，承担土方外运、材料进场的全流程管控，是文明施工核心点位。
+                    </p>
+                </div>
+                <!-- 南侧&东南侧 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-building text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">南侧&东南侧：办公与仓库</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        现场管理中枢，包含项目部办公用房、监理值班室、应急物资库与周转材料仓库，负责施工管理与应急调度。
+                    </p>
+                </div>
+                <!-- 东侧 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-cubes text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">东侧：标准化材料堆放区</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        分区码放粉煤灰、水泥砖、工字型钢等主材，按规范定置化管理，配套材料进场验收与质量追溯点位。
+                    </p>
+                </div>
+                <!-- 北侧 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-cogs text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">北侧：核心施工要道</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        本阶段核心作业面，多台挖掘机同步开展第2层土方开挖，配套开挖动态监测点位，实时管控开挖步序与变形风险。
+                    </p>
+                </div>
+                <!-- 西侧 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-bolt text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">西侧：用电与支护材料区</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        设置现场专用小型变电器，保障全现场施工用电；分区码放L型钢、钢支撑、钢管等支护体系专用材料。
+                    </p>
+                </div>
+                <!-- 中间 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-center mb-3">
+                        <i class="fa fa-arrows-alt text-primary text-xl mr-3"></i>
+                        <h3 class="font-semibold">基坑中部：龙门吊作业区</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">
+                        东西侧中间架设龙门式起重机，负责现场材料吊装与土方转运，保障施工工序无缝衔接。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心施工工艺 -->
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 flex items-center">
+                <i class="fa fa-cog text-primary mr-2"></i>核心施工工艺知识点
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- 支护体系 -->
+                <div class="bg-white rounded-lg p-5 card-shadow">
+                    <div class="text-primary text-3xl mb-3 text-center">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <h3 class="font-semibold text-center mb-3">核心支护体系</h3>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>地下连续墙：挡土止水第一道防线</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>钢支撑+围檩：水平受力核心，控制变形</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>格构柱：竖向支点，防止支撑失稳</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>完整受力闭环，保障基坑安全</li>
+                    </ul>
+                </div>
+                <!-- 主体结构 -->
+                <div class="bg-white rounded-lg p-5 card-shadow">
+                    <div class="text-primary text-3xl mb-3 text-center">
+                        <i class="fa fa-building-o"></i>
+                    </div>
+                    <h3 class="font-semibold text-center mb-3">主体结构基础</h3>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>主体底板：封底止水，承载主体荷载</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>阻断地下水渗透，保障干场作业</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>钢筋接驳器：侧墙施工可靠连接</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>止水构造：保障结构防水与整体性</li>
+                    </ul>
+                </div>
+                <!-- 运输系统 -->
+                <div class="bg-white rounded-lg p-5 card-shadow">
+                    <div class="text-primary text-3xl mb-3 text-center">
+                        <i class="fa fa-exchange"></i>
+                    </div>
+                    <h3 class="font-semibold text-center mb-3">施工配套与运输</h3>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>门式起重机：核心垂直运输设备</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>物料转运：钢筋、模板、钢支撑下放</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>土方外运：开挖土方垂直提升</li>
+                        <li><i class="fa fa-check text-green-500 mr-1"></i>提升转运效率，保障工序衔接</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 监测任务与互动点 -->
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 flex items-center">
+                <i class="fa fa-tasks text-primary mr-2"></i>VR全景可拓展监测任务点
+            </h2>
+            <p class="text-gray-600 mb-4">以下任务点均可在VR全景中实现点击互动，作为培训考核的任务环节：</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- 任务1 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-building text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">周边建筑物沉降监测复核</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击西南侧高层建筑物，查看沉降监测的实时数据，复核沉降速率是否符合规范要求，判断是否存在超标风险。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务2 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-tint text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">地下连续墙渗流隐患排查</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击南侧地下连续墙，查看接缝处的渗流情况，排查施工遗留的清刷不彻底、砼浇注不连续等隐患，定位预警诱因。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务3 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-arrows-v text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">钢支撑轴力监测核查</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击基坑内的红色钢支撑，查看轴力监测的实时数据，判断支撑受力是否稳定，是否存在轴力超标或失稳风险。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务4 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-digger text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">土方开挖步序合规性检查</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击北侧的开挖作业面，查看当前开挖的步序、分层厚度，复核是否符合“分层分段、留土护壁”的规范要求，排查超挖风险。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务5 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-file-text text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">支护材料进场验收复核</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击西侧的支护材料堆放区，查看材料的进场验收记录、质量检测报告，复核钢支撑、钢管的材质是否符合设计要求。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务6 -->
+                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-2 rounded-full mr-3">
+                            <i class="fa fa-bolt text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-1">施工用电安全监测排查</h3>
+                            <p class="text-gray-600 text-sm">
+                                点击西侧的小型变电器，查看用电监测的实时数据，复核接地电阻、漏电保护是否正常，排查临时用电的安全隐患。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 漫游功能说明 -->
+        <section class="mb-10">
+            <div class="bg-white rounded-lg p-6 card-shadow">
+                <h2 class="text-xl font-semibold mb-4 flex items-center">
+                    <i class="fa fa-street-view text-primary mr-2"></i>全景漫游功能
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center">
+                        <i class="fa fa-volume-up text-primary mr-3 text-xl"></i>
+                        <div>
+                            <h3 class="font-medium">分段语音引导</h3>
+                            <p class="text-gray-600 text-sm">每个场景独立语音，专业男声音色，全程风格统一</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-closed-captioning text-primary mr-3 text-xl"></i>
+                        <div>
+                            <h3 class="font-medium">同步字幕展示</h3>
+                            <p class="text-gray-600 text-sm">每10秒自动分段，语音字幕进度完全匹配</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-mouse-pointer text-primary mr-3 text-xl"></i>
+                        <div>
+                            <h3 class="font-medium">场景触发互动</h3>
+                            <p class="text-gray-600 text-sm">视角转动自动触发对应引导，沉浸式漫游体验</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-hand-pointer-o text-primary mr-3 text-xl"></i>
+                        <div>
+                            <h3 class="font-medium">自由浏览模式</h3>
+                            <p class="text-gray-600 text-sm">任务完成后可切换自由浏览，自主探索现场</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="text-center text-gray-500 text-sm">
+            <p>本页面为静态HTML页面，可直接部署到GitHub Pages，无需任何后端服务</p>
+            <p class="mt-1">© 2026 地铁车站明挖法施工VR全景监测项目</p>
+        </footer>
+    </div>
+</body>
+</html>
