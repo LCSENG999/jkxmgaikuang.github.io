@@ -1,340 +1,840 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>地铁车站明挖法施工VR全景监测项目 - 工程概况</title>
-    <!-- 引入Tailwind CSS CDN，适配GitHub Pages直接加载 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入Font Awesome图标CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <!-- 自定义Tailwind配置 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0969da', // GitHub风格的主蓝色
-                        secondary: '#24292f', // GitHub文本色
-                        neutral: '#f6f8fa', // GitHub背景色
-                    },
-                    fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
-                    },
-                }
-            }
+    <title>基坑工程监测项目规范要求汇总</title>
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .card-shadow {
-                box-shadow: 0 1px 3px 0 rgba(27, 31, 35, 0.1), 0 1px 2px 0 rgba(27, 31, 35, 0.06);
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ===== Layout ===== */
+        .page-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        /* ===== Header ===== */
+        .page-header {
+            position: relative;
+            background: linear-gradient(135deg, #0f2b4a 0%, #1a4a6e 50%, #1e6b5e 100%);
+            border-radius: 0 0 24px 24px;
+            padding: 48px 32px 36px;
+            margin: 0 -24px 36px;
+            color: #fff;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+        .page-header .header-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .page-header .header-meta .badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        /* ===== Intro Card ===== */
+        .intro-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border-left: 4px solid #1a6e5e;
+            position: relative;
+        }
+        .intro-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+        .intro-card .highlight-note {
+            margin-top: 14px;
+            padding: 14px 18px;
+            background: #fef9e7;
+            border-radius: 8px;
+            border-left: 3px solid #f59e0b;
+            font-size: 0.9rem;
+            color: #92400e;
+        }
+
+        /* ===== Table of Contents ===== */
+        .toc-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .toc-bar .toc-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #64748b;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+        .toc-bar .toc-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            flex: 1;
+        }
+        .toc-bar .toc-links a {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            color: #475569;
+            text-decoration: none;
+            background: #f1f5f9;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .toc-bar .toc-links a:hover {
+            background: #1a4a6e;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .toc-bar .toc-search {
+            flex: 0 0 auto;
+            min-width: 160px;
+        }
+        .toc-bar .toc-search input {
+            width: 100%;
+            padding: 6px 12px 6px 32px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            outline: none;
+            background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") 8px center no-repeat;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .toc-bar .toc-search input:focus {
+            border-color: #1a6e5e;
+            box-shadow: 0 0 0 3px rgba(26,110,94,0.12);
+        }
+
+        /* ===== Section ===== */
+        .section-block {
+            margin-bottom: 32px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            cursor: pointer;
+            user-select: none;
+        }
+        .section-header .section-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1a4a6e, #1e6b5e);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #0f2b4a;
+            flex: 1;
+        }
+        .section-header .section-toggle {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+        .section-header.collapsed + .section-content {
+            display: none;
+        }
+        .section-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 16px;
+            padding-left: 48px;
+        }
+
+        /* ===== Table ===== */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            background: #fff;
+        }
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 700px;
+        }
+        .table-wrap thead {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+        }
+        .table-wrap thead th {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: #475569;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+        .table-wrap tbody td {
+            padding: 13px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+            color: #334155;
+            line-height: 1.65;
+        }
+        .table-wrap tbody tr {
+            transition: background 0.15s;
+        }
+        .table-wrap tbody tr:hover {
+            background: #f0f9ff;
+        }
+        .table-wrap tbody tr:nth-child(even) {
+            background: #fafbfc;
+        }
+        .table-wrap tbody tr:nth-child(even):hover {
+            background: #f0f9ff;
+        }
+        .table-wrap tbody td:first-child {
+            font-weight: 600;
+            color: #0f2b4a;
+            white-space: nowrap;
+        }
+
+        /* ===== Row highlight ===== */
+        .table-wrap tbody tr.is-visible {
+            display: table-row;
+        }
+        .table-wrap tbody tr.is-hidden {
+            display: none;
+        }
+
+        /* ===== Frequency Table Specific ===== */
+        .freq-table table th,
+        .freq-table table td {
+            text-align: center;
+        }
+        .freq-table table th:first-child,
+        .freq-table table td:first-child,
+        .freq-table table th:nth-child(2),
+        .freq-table table td:nth-child(2) {
+            text-align: left;
+        }
+        .freq-level {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .freq-level.level1 { background: #fee2e2; color: #b91c1c; }
+        .freq-level.level2 { background: #fef3c7; color: #92400e; }
+        .freq-level.level3 { background: #e0f2fe; color: #075985; }
+
+        /* ===== Table tag badges ===== */
+        .tag {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-right: 4px;
+        }
+        .tag-blue  { background: #dbeafe; color: #1d4ed8; }
+        .tag-green { background: #d1fae5; color: #065f46; }
+        .tag-amber { background: #fef3c7; color: #92400e; }
+        .tag-red   { background: #fee2e2; color: #b91c1c; }
+
+        /* ===== Footer ===== */
+        .page-footer {
+            margin-top: 40px;
+            padding: 20px 24px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .page-footer .footer-links a {
+            color: #1a6e5e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .page-footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Back to Top ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a4a6e, #1e6b5e);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(15,43,74,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(15,43,74,0.4);
+        }
+
+        /* ===== No Results ===== */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        .no-results.show {
+            display: block;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            .page-header {
+                padding: 32px 20px 28px;
+                margin: 0 -24px 24px;
+                border-radius: 0;
             }
+            .page-header h1 { font-size: 1.6rem; }
+            .page-wrapper { padding: 0 16px 40px; }
+            .toc-bar { flex-direction: column; align-items: stretch; }
+            .toc-bar .toc-search { min-width: unset; }
+            .intro-card { padding: 20px; }
+        }
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.3rem; }
+            .page-header .header-meta { font-size: 0.8rem; }
+            .section-header h2 { font-size: 1.1rem; }
+            .table-wrap table { font-size: 0.82rem; }
+            .table-wrap thead th,
+            .table-wrap tbody td { padding: 10px 12px; }
+            .back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; font-size: 1rem; }
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .toc-bar, .back-to-top { display: none !important; }
+            .page-header { margin: 0; border-radius: 0; }
+            .table-wrap { box-shadow: none; border: 1px solid #ddd; }
+            .table-wrap tbody tr:nth-child(even) { background: #f9f9f9; }
         }
     </style>
 </head>
-<body class="bg-neutral text-secondary">
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
-        <!-- 页面标题 -->
-        <header class="mb-10 text-center">
-            <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-secondary mb-2">
-                <i class="fa fa-subway text-primary mr-3"></i>地铁车站明挖法施工VR全景监测项目
-            </h1>
-            <p class="text-lg text-gray-600">工程概况 · VR全景互动项目</p>
-            <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded"></div>
-        </header>
+<body>
 
-        <!-- 项目基本信息卡片 -->
-        <section class="mb-10">
-            <div class="bg-white rounded-lg p-6 card-shadow">
-                <h2 class="text-xl font-semibold mb-4 flex items-center">
-                    <i class="fa fa-info-circle text-primary mr-2"></i>项目基本信息
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">项目名称：</span>
-                        <span class="font-medium">某地铁X号线XX站工程</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">施工方法：</span>
-                        <span class="font-medium">明挖法施工</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">当前作业面：</span>
-                        <span class="font-medium">第2层土方开挖作业面</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">项目目标：</span>
-                        <span class="font-medium">沉浸式施工安全监测培训</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">互动平台：</span>
-                        <span class="font-medium">VR全景漫游系统</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="w-32 text-gray-600">核心功能：</span>
-                        <span class="font-medium">全景漫游、隐患排查、任务引导</span>
-                    </div>
+    <!-- ===== Header ===== -->
+    <header class="page-header">
+        <h1>📐 基坑工程监测项目规范要求汇总</h1>
+        <div class="header-meta">
+            <span>📋 依据：GB 50497-2019 及相关规范</span>
+            <span><span class="badge">一级～三级基坑</span></span>
+            <span><span class="badge">含通用频率基准</span></span>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+
+        <!-- ===== 说明 ===== -->
+        <div class="intro-card" id="intro">
+            <p>本汇总依据现行国家标准 <strong>《建筑基坑工程监测技术标准》（GB 50497-2019）</strong> 及相关行业、地方环保标准整理，涵盖基坑工程常用监测项目的监测点布置（使用数量要求）、监测频率及规范依据，可用于基坑监测方案编制、现场施工管控参考。</p>
+            <div class="highlight-note">
+                ⚠️ <strong>注意：</strong>当出现监测值预警、变形速率加快、不良地质、异常天气等情况时，所有监测项目均应 <strong>加密监测频率</strong>，必要时实施 <strong>24小时实时跟踪监测</strong>。
+            </div>
+        </div>
+
+        <!-- ===== 目录 + 搜索 ===== -->
+        <nav class="toc-bar" id="toc">
+            <span class="toc-label">📑 快速跳转</span>
+            <div class="toc-links">
+                <a href="#freq-benchmark">通用频率基准</a>
+                <a href="#monitor-items">监测项目明细</a>
+                <a href="#item-axis">轴力计</a>
+                <a href="#item-dust">扬尘监测</a>
+                <a href="#item-crack">裂缝监测</a>
+                <a href="#item-totalstation">全站仪</a>
+                <a href="#item-tilt">倾角监测</a>
+                <a href="#item-leveling">静力水准</a>
+                <a href="#item-gnss">GNSS监测</a>
+                <a href="#item-inclinometer">测斜监测</a>
+                <a href="#item-rain">雨量计</a>
+                <a href="#item-water">地下水位</a>
+                <a href="#item-anchor">锚索拉力</a>
+                <a href="#item-strain">应变计</a>
+                <a href="#item-rebar">钢筋计</a>
+            </div>
+            <div class="toc-search">
+                <input type="text" id="searchInput" placeholder="搜索监测项目…" aria-label="搜索监测项目">
+            </div>
+        </nav>
+
+        <!-- ===== 通用频率基准 ===== -->
+        <div class="section-block" id="freq-benchmark">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span class="section-icon">📊</span>
+                <h2>通用仪器监测频率基准</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-desc">大部分基坑支护及环境监测项目的监测频率，需根据基坑安全等级及施工阶段动态调整，基准要求如下：</div>
+            <div class="section-content">
+                <div class="table-wrap freq-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>安全等级</th>
+                                <th>阶段</th>
+                                <th>开挖深度 h ≤ H/3</th>
+                                <th>H/3 &lt; h ≤ 2H/3</th>
+                                <th>2H/3 &lt; h ≤ H</th>
+                                <th>底板浇筑后 7~14d</th>
+                                <th>底板浇筑后 14~28d</th>
+                                <th>底板浇筑后 &gt;28d</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="freq-level level1">一级</span></td>
+                                <td>频率</td>
+                                <td>1次/1d</td>
+                                <td>1次/1d</td>
+                                <td>1次/1d</td>
+                                <td>1次/2d</td>
+                                <td>1次/3d</td>
+                                <td>1次/7d</td>
+                            </tr>
+                            <tr>
+                                <td><span class="freq-level level2">二级</span></td>
+                                <td>频率</td>
+                                <td>1次/2d</td>
+                                <td>1次/1d</td>
+                                <td>1次/1d</td>
+                                <td>1次/3d</td>
+                                <td>1次/7d</td>
+                                <td>1次/10d</td>
+                            </tr>
+                            <tr>
+                                <td><span class="freq-level level3">三级</span></td>
+                                <td>频率</td>
+                                <td>1次/3d</td>
+                                <td>1次/2d</td>
+                                <td>1次/1d</td>
+                                <td>1次/7d</td>
+                                <td>1次/10d</td>
+                                <td>1次/15d</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top:12px; font-size:0.85rem; color:#64748b;">
+                    📌 <strong>说明：</strong> h 为当前开挖深度，H 为基坑设计深度；支撑拆除阶段 3d 内监测频率加密为 1 次/d；三级基坑可适当降低频率，宜测/可测项目频率可适当放宽。
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== 监测项目明细 ===== -->
+        <div class="section-block" id="monitor-items">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span class="section-icon">📋</span>
+                <h2>各监测项目详细要求</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="table-wrap">
+                    <table id="monitorTable">
+                        <thead>
+                            <tr>
+                                <th>监测项 / 设备</th>
+                                <th>监测对象</th>
+                                <th>监测点布置（使用数量要求）</th>
+                                <th>监测频率</th>
+                                <th>规范依据</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monitorTableBody">
+                            <!-- 轴力计 -->
+                            <tr id="item-axis">
+                                <td>🔩 轴力计</td>
+                                <td>支撑轴力<br><small>（钢/混凝土支撑）</small></td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>每层支撑监测点不少于<strong>3个</strong>，竖向位置宜保持一致</li>
+                                        <li>优先布置在设计内力较大、基坑阳角处或核心控制杆件上</li>
+                                        <li>钢支撑选在端头或两支点间 <strong>1/3 部位</strong>；混凝土支撑选在两支点间 <strong>1/3 部位</strong>，避开节点</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.4</td>
+                            </tr>
+                            <!-- 扬尘监测 -->
+                            <tr id="item-dust">
+                                <td>🌫️ 扬尘监测系统</td>
+                                <td>施工现场扬尘污染<br><small>（PM2.5 / PM10 / TSP）</small></td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li><strong>点状工程：</strong>0.5万㎡以下≥1个，0.5~1万㎡≥2个，1~10万㎡每增3万㎡增设1个</li>
+                                        <li><strong>线状工程：</strong>5km以下≥1个，5km以上每5km增设1个</li>
+                                        <li>每个车辆主出入口需单独布设监测点</li>
+                                        <li>场界四侧、周边敏感区、土方作业区按需补充布设</li>
+                                    </ul>
+                                </td>
+                                <td>在线监测实时上传数据；<br>手工监测施工期每 2~4h 1 次，非高峰期每 3 日 1 次，大风/重污染天气加密</td>
+                                <td>各地扬尘防治标准、<br>智慧工地建设规范</td>
+                            </tr>
+                            <!-- 裂缝监测 -->
+                            <tr id="item-crack">
+                                <td>🔍 裂缝监测</td>
+                                <td>周边建筑裂缝、地表裂缝</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>选择有代表性的裂缝布设监测点</li>
+                                        <li>每条观测裂缝至少布设 <strong>2个</strong> 监测点，分别设置在裂缝最宽处及末端</li>
+                                        <li>原有裂缝增大或出现新裂缝时，及时增设监测点</li>
+                                    </ul>
+                                </td>
+                                <td>开挖期每日 1 次，正常阶段执行通用频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.3.6</td>
+                            </tr>
+                            <!-- 全站仪 -->
+                            <tr id="item-totalstation">
+                                <td>📐 全站仪</td>
+                                <td>围护墙/边坡顶部水平、竖向位移</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>沿基坑周边布置，优先布设在侧边中部、阳角处、邻近被保护对象处</li>
+                                        <li>监测点水平间距不宜大于 <strong>20m</strong></li>
+                                        <li>基坑每侧边监测点数目不宜少于 <strong>3个</strong></li>
+                                        <li>水平与竖向位移监测点可共用</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.1</td>
+                            </tr>
+                            <!-- 倾角监测 -->
+                            <tr id="item-tilt">
+                                <td>📏 倾角监测<br><small>（倾角计）</small></td>
+                                <td>围护墙倾斜、邻近建（构）筑物倾斜</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>围护墙倾斜监测点可与顶部位移监测点共点，间距 ≤20m，每边不少于 <strong>3个</strong></li>
+                                        <li>建筑倾斜监测每栋建筑至少布设 <strong>2个</strong> 监测点，布置在建筑角部</li>
+                                    </ul>
+                                </td>
+                                <td>正常阶段 1 次/周，施工期与沉降监测同步，预警时 1 次/日，异常情况加密</td>
+                                <td>GB 50497-2019、<br>JGJ 8《建筑变形测量规范》</td>
+                            </tr>
+                            <!-- 静力水准 -->
+                            <tr id="item-leveling">
+                                <td>⚖️ 静力水准</td>
+                                <td>高精度竖向位移<br><small>（沉降/隆起）</small></td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>与竖向位移监测点布设要求一致，间距 ≤20m，每边不少于 <strong>3个</strong></li>
+                                        <li>可实现自动化高精度沉降监测</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，自动化监测可提高采集频率</td>
+                                <td>GB 50497-2019<br>5.2.1</td>
+                            </tr>
+                            <!-- GNSS -->
+                            <tr id="item-gnss">
+                                <td>🛰️ GNSS 监测</td>
+                                <td>水平/竖向位移<br><small>（自动化监测）</small></td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>与位移监测点布设要求一致，间距 ≤20m，每边不少于 <strong>3个</strong></li>
+                                        <li>适合大范围、全天候自动化监测</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，自动化监测可实现实时高频采集</td>
+                                <td>GB 50497-2019<br>5.2.1</td>
+                            </tr>
+                            <!-- 测斜 -->
+                            <tr id="item-inclinometer">
+                                <td>📊 测斜监测</td>
+                                <td>围护墙/土体深层水平位移</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>监测点水平间距 <strong>20m~60m</strong></li>
+                                        <li>基坑每侧边监测点数目不应少于 <strong>1个</strong></li>
+                                        <li>测斜管埋深：围护墙内与墙入土深度相同；土体内不宜小于 <strong>1.5倍</strong> 基坑深度，管底需嵌入稳定土层</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.2</td>
+                            </tr>
+                            <!-- 雨量计 -->
+                            <tr id="item-rain">
+                                <td>🌧️ 雨量计</td>
+                                <td>施工区域降雨量</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>每个基坑工程至少布设 <strong>1台</strong></li>
+                                        <li>覆盖整个施工区域的降雨监测</li>
+                                    </ul>
+                                </td>
+                                <td>实时自动采集分钟级降雨量；汛期加密监测，同步关联地下水位变化分析</td>
+                                <td>基坑工程环境监测通用要求</td>
+                            </tr>
+                            <!-- 地下水位 -->
+                            <tr id="item-water">
+                                <td>💧 地下水位监测</td>
+                                <td>基坑内/外地下水位</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li><strong>基坑内：</strong>深井降水布在中央、相邻降水井中间；轻型井点布在中央、周边拐角</li>
+                                        <li><strong>基坑外：</strong>沿基坑周边间距 <strong>20m~50m</strong>，止水帷幕外侧约 2m 处布设</li>
+                                        <li>观测管底埋置在最低设计水位下 <strong>3~5m</strong>；承压水单独布设监测孔</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.10</td>
+                            </tr>
+                            <!-- 锚索拉力 -->
+                            <tr id="item-anchor">
+                                <td>⛓️ 锚索拉力监测</td>
+                                <td>锚索/锚杆轴力</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li>每层锚索监测点数量为该层锚索总数的 <strong>1%~3%</strong></li>
+                                        <li>基坑每边不应少于 <strong>1根</strong></li>
+                                        <li>各层监测点位置竖向上宜保持一致，测试点设置在锚头附近</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.6</td>
+                            </tr>
+                            <!-- 应变计 -->
+                            <tr id="item-strain">
+                                <td>⚡ 应变计</td>
+                                <td>混凝土结构应变、内力</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li><strong>围护墙内力监测：</strong>竖直方向间距 2~4m，弯矩极值处需布设，每个断面不少于 <strong>1对</strong> 传感器</li>
+                                        <li><strong>支撑应变监测：</strong>与支撑轴力监测点共用，布置在两支点间 <strong>1/3 部位</strong></li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.3、5.2.4</td>
+                            </tr>
+                            <!-- 钢筋计 -->
+                            <tr id="item-rebar">
+                                <td>🔗 钢筋计</td>
+                                <td>钢筋内力、结构应力</td>
+                                <td>
+                                    <ul style="margin:0; padding-left:18px;">
+                                        <li><strong>围护墙钢筋应力：</strong>与围护墙内力监测点共用，布置在受力较大部位</li>
+                                        <li><strong>支撑钢筋应力：</strong>与支撑轴力监测点共用，每个截面按测试要求布设传感器</li>
+                                    </ul>
+                                </td>
+                                <td>执行通用监测频率，异常情况加密</td>
+                                <td>GB 50497-2019<br>5.2.3、5.2.4</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 项目现场布局 -->
-        <section class="mb-10">
-            <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <i class="fa fa-map-marker text-primary mr-2"></i>项目现场布局
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- 西南侧 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-truck text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">西南侧：车辆进出口</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        项目的车辆通行管控区，设置泥沙冲洗区与放行闸口，承担土方外运、材料进场的全流程管控，是文明施工核心点位。
-                    </p>
-                </div>
-                <!-- 南侧&东南侧 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-building text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">南侧&东南侧：办公与仓库</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        现场管理中枢，包含项目部办公用房、监理值班室、应急物资库与周转材料仓库，负责施工管理与应急调度。
-                    </p>
-                </div>
-                <!-- 东侧 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-cubes text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">东侧：标准化材料堆放区</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        分区码放粉煤灰、水泥砖、工字型钢等主材，按规范定置化管理，配套材料进场验收与质量追溯点位。
-                    </p>
-                </div>
-                <!-- 北侧 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-cogs text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">北侧：核心施工要道</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        本阶段核心作业面，多台挖掘机同步开展第2层土方开挖，配套开挖动态监测点位，实时管控开挖步序与变形风险。
-                    </p>
-                </div>
-                <!-- 西侧 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-bolt text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">西侧：用电与支护材料区</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        设置现场专用小型变电器，保障全现场施工用电；分区码放L型钢、钢支撑、钢管等支护体系专用材料。
-                    </p>
-                </div>
-                <!-- 中间 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-center mb-3">
-                        <i class="fa fa-arrows-alt text-primary text-xl mr-3"></i>
-                        <h3 class="font-semibold">基坑中部：龙门吊作业区</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm">
-                        东西侧中间架设龙门式起重机，负责现场材料吊装与土方转运，保障施工工序无缝衔接。
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- ===== 无搜索结果 ===== -->
+        <div class="no-results" id="noResults">
+            ❌ 未找到匹配的监测项目，请尝试其他关键词
+        </div>
 
-        <!-- 核心施工工艺 -->
-        <section class="mb-10">
-            <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <i class="fa fa-cog text-primary mr-2"></i>核心施工工艺知识点
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- 支护体系 -->
-                <div class="bg-white rounded-lg p-5 card-shadow">
-                    <div class="text-primary text-3xl mb-3 text-center">
-                        <i class="fa fa-shield"></i>
-                    </div>
-                    <h3 class="font-semibold text-center mb-3">核心支护体系</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>地下连续墙：挡土止水第一道防线</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>钢支撑+围檩：水平受力核心，控制变形</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>格构柱：竖向支点，防止支撑失稳</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>完整受力闭环，保障基坑安全</li>
-                    </ul>
-                </div>
-                <!-- 主体结构 -->
-                <div class="bg-white rounded-lg p-5 card-shadow">
-                    <div class="text-primary text-3xl mb-3 text-center">
-                        <i class="fa fa-building-o"></i>
-                    </div>
-                    <h3 class="font-semibold text-center mb-3">主体结构基础</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>主体底板：封底止水，承载主体荷载</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>阻断地下水渗透，保障干场作业</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>钢筋接驳器：侧墙施工可靠连接</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>止水构造：保障结构防水与整体性</li>
-                    </ul>
-                </div>
-                <!-- 运输系统 -->
-                <div class="bg-white rounded-lg p-5 card-shadow">
-                    <div class="text-primary text-3xl mb-3 text-center">
-                        <i class="fa fa-exchange"></i>
-                    </div>
-                    <h3 class="font-semibold text-center mb-3">施工配套与运输</h3>
-                    <ul class="text-gray-600 text-sm space-y-2">
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>门式起重机：核心垂直运输设备</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>物料转运：钢筋、模板、钢支撑下放</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>土方外运：开挖土方垂直提升</li>
-                        <li><i class="fa fa-check text-green-500 mr-1"></i>提升转运效率，保障工序衔接</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 监测任务与互动点 -->
-        <section class="mb-10">
-            <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <i class="fa fa-tasks text-primary mr-2"></i>VR全景可拓展监测任务点
-            </h2>
-            <p class="text-gray-600 mb-4">以下任务点均可在VR全景中实现点击互动，作为培训考核的任务环节：</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- 任务1 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-building text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">周边建筑物沉降监测复核</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击西南侧高层建筑物，查看沉降监测的实时数据，复核沉降速率是否符合规范要求，判断是否存在超标风险。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 任务2 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-tint text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">地下连续墙渗流隐患排查</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击南侧地下连续墙，查看接缝处的渗流情况，排查施工遗留的清刷不彻底、砼浇注不连续等隐患，定位预警诱因。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 任务3 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-arrows-v text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">钢支撑轴力监测核查</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击基坑内的红色钢支撑，查看轴力监测的实时数据，判断支撑受力是否稳定，是否存在轴力超标或失稳风险。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 任务4 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-digger text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">土方开挖步序合规性检查</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击北侧的开挖作业面，查看当前开挖的步序、分层厚度，复核是否符合“分层分段、留土护壁”的规范要求，排查超挖风险。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 任务5 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-file-text text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">支护材料进场验收复核</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击西侧的支护材料堆放区，查看材料的进场验收记录、质量检测报告，复核钢支撑、钢管的材质是否符合设计要求。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 任务6 -->
-                <div class="bg-white rounded-lg p-5 card-shadow hover:shadow-md transition-shadow">
-                    <div class="flex items-start">
-                        <div class="bg-primary/10 p-2 rounded-full mr-3">
-                            <i class="fa fa-bolt text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold mb-1">施工用电安全监测排查</h3>
-                            <p class="text-gray-600 text-sm">
-                                点击西侧的小型变电器，查看用电监测的实时数据，复核接地电阻、漏电保护是否正常，排查临时用电的安全隐患。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 漫游功能说明 -->
-        <section class="mb-10">
-            <div class="bg-white rounded-lg p-6 card-shadow">
-                <h2 class="text-xl font-semibold mb-4 flex items-center">
-                    <i class="fa fa-street-view text-primary mr-2"></i>全景漫游功能
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-center">
-                        <i class="fa fa-volume-up text-primary mr-3 text-xl"></i>
-                        <div>
-                            <h3 class="font-medium">分段语音引导</h3>
-                            <p class="text-gray-600 text-sm">每个场景独立语音，专业男声音色，全程风格统一</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fa fa-closed-captioning text-primary mr-3 text-xl"></i>
-                        <div>
-                            <h3 class="font-medium">同步字幕展示</h3>
-                            <p class="text-gray-600 text-sm">每10秒自动分段，语音字幕进度完全匹配</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fa fa-mouse-pointer text-primary mr-3 text-xl"></i>
-                        <div>
-                            <h3 class="font-medium">场景触发互动</h3>
-                            <p class="text-gray-600 text-sm">视角转动自动触发对应引导，沉浸式漫游体验</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fa fa-hand-pointer-o text-primary mr-3 text-xl"></i>
-                        <div>
-                            <h3 class="font-medium">自由浏览模式</h3>
-                            <p class="text-gray-600 text-sm">任务完成后可切换自由浏览，自主探索现场</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 页脚 -->
-        <footer class="text-center text-gray-500 text-sm">
-            <p>本页面为静态HTML页面，可直接部署到GitHub Pages，无需任何后端服务</p>
-            <p class="mt-1">© 2026 地铁车站明挖法施工VR全景监测项目</p>
+        <!-- ===== Footer ===== -->
+        <footer class="page-footer">
+            <span class="footer-links">
+                依据 <a href="#" target="_blank">GB 50497-2019</a> · 智慧工地建设规范
+            </span>
         </footer>
+
     </div>
+
+    <!-- ===== Back to Top ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部">↑</button>
+
+    <script>
+        // ===== Section Toggle =====
+        function toggleSection(header) {
+            header.classList.toggle('collapsed');
+            const toggle = header.querySelector('.section-toggle');
+            const content = header.nextElementSibling.nextElementSibling; // skip .section-desc
+            if (header.classList.contains('collapsed')) {
+                toggle.textContent = '▶';
+                if (content) content.style.display = 'none';
+            } else {
+                toggle.textContent = '▼';
+                if (content) content.style.display = '';
+            }
+        }
+
+        // ===== Search / Filter =====
+        const searchInput = document.getElementById('searchInput');
+        const tableBody = document.getElementById('monitorTableBody');
+        const rows = tableBody ? tableBody.querySelectorAll('tr') : [];
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                if (!keyword) {
+                    row.classList.remove('is-hidden');
+                    row.classList.add('is-visible');
+                    visibleCount++;
+                } else {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(keyword)) {
+                        row.classList.remove('is-hidden');
+                        row.classList.add('is-visible');
+                        visibleCount++;
+                    } else {
+                        row.classList.remove('is-visible');
+                        row.classList.add('is-hidden');
+                    }
+                }
+            });
+
+            noResults.classList.toggle('show', keyword && visibleCount === 0);
+        });
+
+        // ===== Back to Top Visibility =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            backToTop.classList.toggle('show', window.scrollY > 400);
+        });
+
+        // ===== Smooth scroll for TOC links (offset for sticky bar) =====
+        document.querySelectorAll('.toc-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== Keyboard: Escape clears search =====
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                this.dispatchEvent(new Event('input'));
+                this.blur();
+            }
+        });
+    </script>
 </body>
 </html>
